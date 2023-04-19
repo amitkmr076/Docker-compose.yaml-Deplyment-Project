@@ -1,0 +1,26 @@
+version: '3'
+services:
+  react-django-app:
+    image: amitkmr076/react_django_demo_app:latest
+    deploy:
+      replicas: 2
+    ports:
+      - "8000:8005::8000"
+    volumes:
+      - django_volume:/app
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=test@123"
+
+volumes:
+ django_volume: 
+  external: true 
+
+
+
+
+
+
