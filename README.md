@@ -1,8 +1,10 @@
-NOTE: volume here is create manually and later added to other replicas of the container by step -7 and step -12. Using "external"
+NOTE: "VOLUME" here is create manually and later added to other replicas of the container by step -7 and step -12. Using "external"
 
 parameters to attach the other containers to the existed volume and for other services it is advice to create an seperate volumes
 
 as it will seperate te data files and backups which will not mix-up and complicate the database and in worse case it will lock the files.
+
+AND for "PORTS": you need to specify number of ports attach to default port so that the replicas or other containers can allocate through it otherwise it                  will show an Error. As shown in step- 6.
 
 
 Docker-compose.yaml file: 	--------SYNTAX EXPLANATION-----
