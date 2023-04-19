@@ -1,10 +1,11 @@
-NOTE: "VOLUME" here is create manually and later added to other replicas of the container by step -7 and step -12. Using "external"
+NOTE: 1:  "VOLUME" here is create manually and later added to other replicas of the container by auto because they are replicas of same container and by
+          running docker-compose file and BUT ,For other service like MYSQL we run the command to attach the existed "django_volume" - after stopping the            mysql container we run the command -"docker stop mysql_ID "
+         " docker run -d -e MYSQL_ROOT_PASSWORD=test@123 --mount source=django_volume,target=/app mysql:latest "    - mount the volume to mysql Image
+           By ruuning this command Mysql image will rebuild and will attach to the django_volume OR existing volume.
+     
+   2: Using "external"parameters in Step -7 & Step-12 to attach the other containers to the existed volume and for other services it is advice to create      an seperate volumes as it will seperate the data files and backups which will not mix-up and complicate the database and in worse case it will lock     the files.But if we want to attach an existing volume to other we can do so as shown in Above 1: Note.
 
-parameters to attach the other containers to the existed volume and for other services it is advice to create an seperate volumes
-
-as it will seperate te data files and backups which will not mix-up and complicate the database and in worse case it will lock the files.
-
-AND for "PORTS": you need to specify number of ports attach to default port so that the replicas or other containers can allocate through it otherwise it                  will show an Error. As shown in step- 6.
+   3: AND for "PORTS": you need to specify number of ports attach to default port so that the replicas or other containers can allocate through it             otherwise it will show an Error. As shown in step- 6.
 
 
 Docker-compose.yaml file: 	--------SYNTAX EXPLANATION-----
