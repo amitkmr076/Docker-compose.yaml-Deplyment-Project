@@ -1,3 +1,10 @@
+Pre-requisite : follow this blog for step by step guide
+
+blog : https://amitblog.hashnode.dev/streamline-your-docker-workflow-a-guide-to-docker-volumes-compose-and-multi-container-deployment
+
+
+
+
 NOTE: 1:  "VOLUME" here is create manually and later added to other replicas of the container by auto because they are replicas of same container and by
           running docker-compose file and BUT ,For other service like MYSQL we run the command to attach the existed "django_volume" - after stopping the            mysql container we run the command -"docker stop mysql_ID "
          " docker run -d -e MYSQL_ROOT_PASSWORD=test@123 --mount source=django_volume,target=/app mysql:latest "    - mount the volume to mysql Image
